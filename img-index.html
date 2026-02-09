@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine?</title>
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap" rel="stylesheet">
+    <!--cssstylesheet-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--Confetti-->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body class="rbodi">
+    <h1 class="note">
+        Now that you are my Valentine, how does it feel? Are you glad the "NO" was hard to get?
+        If you are seeing this page, screenshot this parking ticket, prepare thyself, look good and ensure you are
+        at the kennedy center on Friday 13th, 7pm.
+    </h1>
+
+    <div class="card">
+        <h2>scroll to the end</h2>
+        <img src="parking.jpeg" alt="ticket">
+        <p>Contact the sender for more logistics details!
+            <em>have a wonderful Valentine, Habibti.</em>
+        </p>
+
+    </div>
+    <script>
+        var duration = 15 * 1000;
+        var animationEnd = Date.now() + duration;
+        var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        var interval = setInterval(function () {
+            var timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            var particleCount = 50 * (timeLeft / duration);
+            // since particles fall down, start a bit higher than random
+            confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+            confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+        }, 250);
+    </script>
+</body>
+
+</html>
